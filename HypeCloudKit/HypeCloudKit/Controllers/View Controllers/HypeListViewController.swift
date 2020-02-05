@@ -39,14 +39,14 @@ class HypeListViewController: UIViewController {
                 HypeController.sharedInstance.hypes = hypes
                 self.updateViews()
             case .failure(let error):
-                print(error, error.errorDescription)
+                print(error.errorDescription ?? error.localizedDescription)
             }
         }
     }
     
     //MARK: - Actions
     @IBAction func composeButtonTapped(_ sender: Any) {
-        presentAddHypeAlert()
+        presentAddHypeAlert(for: nil)
     }
 }//End of class
 
@@ -68,6 +68,32 @@ extension HypeListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let hype = HypeController.sharedInstance.hypes[indexPath.row]
+        presentAddHypeAlert(for: hype)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let hypeToDelete = HypeController.sharedInstance.hypes[indexPath.row]
+            guard let index = HypeController.sharedInstance.hypes.firstIndex(of: hypeToDelete) else {return}
+            HypeController.sharedInstance.delete(hypeToDelete) { (result) in
+                switch result {
+                case .success(let success):
+                    if success {
+                        HypeController.sharedInstance.hypes.remove(at: index)
+                        DispatchQueue.main.async {
+                            tableView.deleteRows(at: [indexPath], with: .fade)
+                        }
+                    }
+                case .failure(let error):
+                    print(error, error.localizedDescription)
+                }
+            }
+        }
+    }
+    
 }//End of extension
 
 //MARK: - Alert Controller
@@ -91,17 +117,17 @@ extension HypeListViewController {
                 HypeController.sharedInstance.update(hype) { (result) in
                     self.updateViews()
                 }
-            }
-            
-            HypeController.sharedInstance.saveHype(with: text) { (result) in
-                switch result {
-                case .success(let hype):
-                    guard let hype = hype else {return}
-                    HypeController.sharedInstance.hypes.insert(hype, at: 0)
-                    self.updateViews()
-                    
-                case .failure(let error):
-                    print(error, error.errorDescription)
+            } else {
+                HypeController.sharedInstance.saveHype(with: text) { (result) in
+                    switch result {
+                    case .success(let hype):
+                        guard let hype = hype else {return}
+                        HypeController.sharedInstance.hypes.insert(hype, at: 0)
+                        self.updateViews()
+                        
+                    case .failure(let error):
+                        print(error.errorDescription ?? error.localizedDescription)
+                    }
                 }
             }
         }
