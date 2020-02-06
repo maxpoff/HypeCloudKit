@@ -18,6 +18,11 @@
 		97484C4123E9F00A009CF866 /* HypeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97484C4023E9F00A009CF866 /* HypeError.swift */; };
 		97484C4323E9F924009CF866 /* HypeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97484C4223E9F924009CF866 /* HypeListViewController.swift */; };
 		97484C4523EA0D3F009CF866 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97484C4423EA0D3F009CF866 /* DateExtension.swift */; };
+		97C6A76623EC7D720055F6DE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6A76523EC7D720055F6DE /* User.swift */; };
+		97C6A76823EC84930055F6DE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6A76723EC84930055F6DE /* UserController.swift */; };
+		97C6A76A23EC86320055F6DE /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6A76923EC86320055F6DE /* UserError.swift */; };
+		97C6A76C23EC9FDA0055F6DE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C6A76B23EC9FDA0055F6DE /* SignUpViewController.swift */; };
+		97C6A76F23ECA1910055F6DE /* HypeList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C6A76D23ECA1910055F6DE /* HypeList.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,11 @@
 		97484C4023E9F00A009CF866 /* HypeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeError.swift; sourceTree = "<group>"; };
 		97484C4223E9F924009CF866 /* HypeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeListViewController.swift; sourceTree = "<group>"; };
 		97484C4423EA0D3F009CF866 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		97C6A76523EC7D720055F6DE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		97C6A76723EC84930055F6DE /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		97C6A76923EC86320055F6DE /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		97C6A76B23EC9FDA0055F6DE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		97C6A76E23ECA1910055F6DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HypeCloudKit/Views/Base.lproj/HypeList.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				97484C3B23E9E6BB009CF866 /* Hype.swift */,
+				97C6A76523EC7D720055F6DE /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				97484C4223E9F924009CF866 /* HypeListViewController.swift */,
+				97C6A76B23EC9FDA0055F6DE /* SignUpViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -120,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				97484C3D23E9EEA1009CF866 /* HypeController.swift */,
+				97C6A76723EC84930055F6DE /* UserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -128,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				97484C2323E9E0F0009CF866 /* Main.storyboard */,
+				97C6A76D23ECA1910055F6DE /* HypeList.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +159,7 @@
 			children = (
 				97484C4023E9F00A009CF866 /* HypeError.swift */,
 				97484C4423EA0D3F009CF866 /* DateExtension.swift */,
+				97C6A76923EC86320055F6DE /* UserError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -207,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C6A76F23ECA1910055F6DE /* HypeList.storyboard in Resources */,
 				97484C2A23E9E0F0009CF866 /* LaunchScreen.storyboard in Resources */,
 				97484C2723E9E0F0009CF866 /* Assets.xcassets in Resources */,
 				97484C2523E9E0F0009CF866 /* Main.storyboard in Resources */,
@@ -220,10 +236,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C6A76C23EC9FDA0055F6DE /* SignUpViewController.swift in Sources */,
+				97C6A76823EC84930055F6DE /* UserController.swift in Sources */,
 				97484C4123E9F00A009CF866 /* HypeError.swift in Sources */,
 				97484C4523EA0D3F009CF866 /* DateExtension.swift in Sources */,
+				97C6A76A23EC86320055F6DE /* UserError.swift in Sources */,
 				97484C1E23E9E0F0009CF866 /* AppDelegate.swift in Sources */,
 				97484C4323E9F924009CF866 /* HypeListViewController.swift in Sources */,
+				97C6A76623EC7D720055F6DE /* User.swift in Sources */,
 				97484C3E23E9EEA1009CF866 /* HypeController.swift in Sources */,
 				97484C2023E9E0F0009CF866 /* SceneDelegate.swift in Sources */,
 				97484C3C23E9E6BB009CF866 /* Hype.swift in Sources */,
@@ -247,6 +267,14 @@
 				97484C2923E9E0F0009CF866 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		97C6A76D23ECA1910055F6DE /* HypeList.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97C6A76E23ECA1910055F6DE /* Base */,
+			);
+			name = HypeList.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

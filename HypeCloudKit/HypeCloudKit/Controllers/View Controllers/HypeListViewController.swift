@@ -71,12 +71,15 @@ extension HypeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hype = HypeController.sharedInstance.hypes[indexPath.row]
+        guard hype.userReference?.recordID == UserController.sharedInstance.currentUser?.recordID else {return}
         presentAddHypeAlert(for: hype)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let hypeToDelete = HypeController.sharedInstance.hypes[indexPath.row]
+        guard hypeToDelete.userReference?.recordID == UserController.sharedInstance.currentUser?.recordID else {return}
         if editingStyle == .delete {
-            let hypeToDelete = HypeController.sharedInstance.hypes[indexPath.row]
+            //let hypeToDelete = HypeController.sharedInstance.hypes[indexPath.row]
             guard let index = HypeController.sharedInstance.hypes.firstIndex(of: hypeToDelete) else {return}
             HypeController.sharedInstance.delete(hypeToDelete) { (result) in
                 switch result {

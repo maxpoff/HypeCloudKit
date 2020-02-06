@@ -14,6 +14,7 @@ enum HypeError: LocalizedError {
     case ckError(Error)
     case couldNotUnwrap
     case unexpectedRecordsFound
+    case noUserLoggedIn
     
     var errorDescription: String? {
         switch self {
@@ -25,6 +26,9 @@ enum HypeError: LocalizedError {
             
         case .unexpectedRecordsFound:
             return "Unexpected records were returned when trying to delete"
+            
+        case .noUserLoggedIn:
+            return "No user logged in"
         }
     }
 }
